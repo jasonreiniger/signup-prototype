@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Onboarding Flow</title>
+    <style>
+        .screen {
+            display: none;
+        }
+        .screen.active {
+            display: block;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Screen 1: Welcome -->
+    <div id="screen1" class="screen active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500">
+            <rect x="10" y="10" width="280" height="480" rx="20" fill="none" stroke="black" stroke-width="2"/>
+            <rect x="30" y="40" width="240" height="420" fill="#f0f0f0"/>
+            <text x="150" y="80" font-family="Arial" font-size="16" text-anchor="middle">Welcome</text>
+            <a href="#" onclick="showScreen('screen2')">
+                <rect x="70" y="120" width="160" height="40" rx="5" fill="white" stroke="black"/>
+                <text x="150" y="145" font-family="Arial" font-size="14" text-anchor="middle">Create Account</text>
+            </a>
+            <a href="#" onclick="showScreen('screen2')">
+                <rect x="70" y="180" width="160" height="40" rx="5" fill="white" stroke="black"/>
+                <text x="150" y="205" font-family="Arial" font-size="14" text-anchor="middle">Log In</text>
+            </a>
+        </svg>
+    </div>
+
+    <!-- Screen 2: Enter Details -->
+    <div id="screen2" class="screen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500">
+            <rect x="10" y="10" width="280" height="480" rx="20" fill="none" stroke="black" stroke-width="2"/>
+            <rect x="30" y="40" width="240" height="420" fill="#f0f0f0"/>
+            <text x="150" y="80" font-family="Arial" font-size="16" text-anchor="middle">Create Account</text>
+            <rect x="30" y="100" width="240" height="30" rx="5" fill="white" stroke="black"/>
+            <text x="40" y="120" font-family="Arial" font-size="12">Name</text>
+            <rect x="30" y="140" width="240" height="30" rx="5" fill="white" stroke="black"/>
+            <text x="40" y="160" font-family="Arial" font-size="12">Email</text>
+            <rect x="30" y="180" width="240" height="30" rx="5" fill="white" stroke="black"/>
+            <text x="40" y="200" font-family="Arial" font-size="12">Password</text>
+            <a href="#" onclick="showScreen('screen3')">
+                <rect x="70" y="220" width="160" height="40" rx="5" fill="white" stroke="black"/>
+                <text x="150" y="245" font-family="Arial" font-size="14" text-anchor="middle">Sign Up</text>
+            </a>
+        </svg>
+    </div>
+
+    <!-- Screen 3: Confirmation -->
+    <div id="screen3" class="screen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500">
+            <rect x="10" y="10" width="280" height="480" rx="20" fill="none" stroke="black" stroke-width="2"/>
+            <rect x="30" y="40" width="240" height="420" fill="#f0f0f0"/>
+            <text x="150" y="80" font-family="Arial" font-size="16" text-anchor="middle">Account Created!</text>
+            <circle cx="150" cy="150" r="40" fill="none" stroke="black" stroke-width="2"/>
+            <text x="150" y="155" font-family="Arial" font-size="40" text-anchor="middle">✓</text>
+            <text x="150" y="220" font-family="Arial" font-size="14" text-anchor="middle">Welcome aboard!</text>
+            <a href="#" onclick="showScreen('dashboard')">
+                <rect x="70" y="250" width="160" height="40" rx="5" fill="white" stroke="black"/>
+                <text x="150" y="275" font-family="Arial" font-size="14" text-anchor="middle">Go to Dashboard</text>
+            </a>
+        </svg>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            
+            // Show the selected screen
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
